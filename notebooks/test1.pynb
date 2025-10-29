@@ -1,0 +1,6 @@
+from src.adm_parser import extract_adm_positions
+from src.visualize_objects import plot_positions
+
+xml_path = "../data/POE-ATMOS-FINAL-metadata.xml"
+objects = extract_adm_positions(xml_path)
+plot_positions(objects)
