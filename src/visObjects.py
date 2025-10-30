@@ -5,36 +5,40 @@ from .parser import parseTimecodeToSeconds, getPositionAtTime
 import numpy as np
 
 
-def animateObjects(objects_dict, duration_seconds, fps=10):
-    """Create animation of ADM object positions over time."""
+def animateObjects(objects_dict, duration_seconds, fps=10, speed_multiplier=1.0):
+    """
+        objects_dict (dict): Dictionary of object positions
+        duration_seconds (float): Duration to animate
+        fps (int): Frames per second for animation
+        speed_multiplier (float): Multiplier for animation speed (e.g., 2.0 = twice as fast)
+    """
     
-    # Debug: Print sample of our data
-    print("\nFirst few time blocks for first object:")
-    first_obj_name = list(objects_dict.keys())[0]
-    first_blocks = objects_dict[first_obj_name][:3]  # First 3 blocks
-    for block in first_blocks:
-        print(f"Time: {block['rtime']}, Duration: {block['duration']}")
-        print(f"Position: ({block['x']}, {block['y']}, {block['z']})")
+    # Calculate actual time range from the data
+    min_time = float('inf')
+    max_time = 0
+    for name, blocks in objects_dict.items():
+        for block in blocks:
+            start = parseTimecodeToSeconds(block['rtime'])
+            duration = parseTimecodeToSeconds(block['duration'])
+            min_time = min(min_time, start)
+            max_time = max(max_time, start + duration)
+    
+    print(f"Data time range: {min_time:.2f}s to {max_time:.2f}s")
+    print(f"Playback speed: {speed_multiplier}x")
+    
+    # Use data's time range if shorter than requested duration
+    duration_seconds = min(duration_seconds, max_time)
     
     fig = plt.figure(figsize=(10, 8))
     ax = fig.add_subplot(111, projection="3d")
     
     numFrames = int(duration_seconds * fps)
-    timePoints = np.linspace(0, duration_seconds, numFrames)
-    print(f"\nAnimation setup:")
-    print(f"Duration: {duration_seconds}s, FPS: {fps}")
-    print(f"Frame count: {numFrames}")
-    print(f"Time range: {timePoints[0]}s to {timePoints[-1]}s")
+    timePoints = np.linspace(min_time, duration_seconds, numFrames)
     
     def update(frame):
         ax.clear()
         time_seconds = timePoints[frame]
         
-        # Debug first frame
-        if frame == 0:
-            print(f"\nFirst frame debug:")
-            print(f"Time: {time_seconds}s")
-            
         positions_found = False
         for name, blocks in objects_dict.items():
             position = getPositionAtTime(blocks, time_seconds)
@@ -43,22 +47,37 @@ def animateObjects(objects_dict, duration_seconds, fps=10):
                 x, y, z = position['x'], position['y'], position['z']
                 ax.scatter(x, y, z, s=100, alpha=0.6)
                 ax.text(x, y, z, name, fontsize=7)
+                
+                # Add trajectory line (optional)
+                prev_positions = []
+                for t in timePoints[:frame+1]:
+                    pos = getPositionAtTime(blocks, t)
+                    if pos:
+                        prev_positions.append((pos['x'], pos['y'], pos['z']))
+                if prev_positions:
+                    prev_positions = np.array(prev_positions)
+                    ax.plot(prev_positions[:,0], prev_positions[:,1], prev_positions[:,2], 
+                           alpha=0.2, linestyle='--')
         
         if frame == 0 and not positions_found:
-            print("WARNING: No positions found in first frame!")
+            print(f"WARNING: No positions found at time {time_seconds:.2f}s")
         
         ax.set_xlabel("X")
         ax.set_ylabel("Y")
         ax.set_zlabel("Z")
-        ax.set_title(f"ADM Object Positions - Time: {time_seconds:.2f}s")
+        ax.set_title(f"ADM Object Positions - Time: {time_seconds:.2f}s (Speed: {speed_multiplier}x)")
         ax.set_xlim([-1.5, 1.5])
         ax.set_ylim([-1.5, 1.5])
         ax.set_zlim([-0.5, 1.5])
+        ax.grid(True)
         
         return ax,
     
+    # Adjust interval based on speed multiplier
+    interval = (1000/fps) / speed_multiplier
+    
     anim = animation.FuncAnimation(fig, update, frames=numFrames, 
-                                   interval=1000/fps, blit=False)
+                                   interval=interval, blit=False)
     plt.show()
     
     return anim
