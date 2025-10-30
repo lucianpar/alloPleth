@@ -2,6 +2,8 @@ from src.extractMetadata import extractMetaData
 from src.parser import parseMetadata
 from src.visObjects import animateObjects
 
+
+extractedMetadata = None
 '''commenting out for now
 print("Extracting ADM metadata from WAV file...")
 extractedMetadata = extractMetaData("data/POE-ATMOS-FINAL.wav", "data/POE-ATMOS-FINAL-metadata.xml")
