@@ -60,8 +60,8 @@ def summarizeMetadataChanges(objectsDict):
     return summary
 
 
-def printSummary(currentObjectDataPath = "../data/currentObjectData.json", togglePositionChanges=False):
-    objectDict = loadObjectData(currentObjectDataPath)
+def printSummary(objectDataPath = "data/objectData.json", togglePositionChanges=False):
+    objectDict = loadObjectData(objectDataPath)
     summary = summarizeMetadataChanges(objectDict)
     """Summarize metadata changes. second arg toggles detailed position changes"""
     print(f"\nFound {len(objectDict)} audio objects:")

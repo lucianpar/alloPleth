@@ -91,7 +91,7 @@ def extractObjectPositions(xml_path):
     
     return objects
 
-def saveObjectData(objectsDict, outputPath="data/currentObjectData.json"):
+def saveObjectData(objectsDict, outputPath="data/objectData.json"):
     os.makedirs(os.path.dirname(outputPath), exist_ok=True)
 
     with open(outputPath, 'w') as f:
@@ -99,7 +99,7 @@ def saveObjectData(objectsDict, outputPath="data/currentObjectData.json"):
 
     print(f"Saved object data to {outputPath}")
 
-def loadObjectData(inputPath="data/currentObjectData.json"):
+def loadObjectData(inputPath="data/objectData.json"):
     if not os.path.exists(inputPath):
         raise FileNotFoundError(f"No object data file found at {inputPath}")
 
@@ -131,7 +131,7 @@ def getPositionAtTime(blocks, time_seconds):
     
     return None
 
-def getGlobalData(xmlPath, outputPath="data/currentGlobalData.json"):
+def getGlobalData(xmlPath, outputPath="data/globalData.json"):
     """Extract all fields from the XML file's <Technical> section and save to JSON."""
     tree = etree.parse(xmlPath)
     technicalData = tree.find(".//Technical")
@@ -153,19 +153,84 @@ def getGlobalData(xmlPath, outputPath="data/currentGlobalData.json"):
     print(f"Saved technical metadata to {outputPath}")
     return global_data
 
+def getDirectSpeakerData(xmlPath, outputPath="data/directSpeakerData.json"):
+    """Extract all DirectSpeaker channel data from the XML file and save to JSON."""
+    ns = {"ebu": "urn:ebu:metadata-schema:ebuCore_2016"}
+    tree = etree.parse(xmlPath)
+    
+    direct_speakers = {}
+    
+    # Find all audioChannelFormat elements with typeDefinition="DirectSpeakers"
+    for channel in tree.xpath("//ebu:audioChannelFormat[@typeDefinition='DirectSpeakers']", namespaces=ns):
+        channel_name = channel.attrib.get("audioChannelFormatName", "Unnamed")
+        channel_id = channel.attrib.get("audioChannelFormatID", "")
+        
+        # Get the audioBlockFormat element for this channel
+        block = channel.find(".//ebu:audioBlockFormat", namespaces=ns)
+        if block is None:
+            continue
+            
+        speaker_data = {
+            'channelID': channel_id,
+            'channelName': channel_name,
+            'blockID': block.attrib.get("audioBlockFormatID", ""),
+            'x': 0.0,
+            'y': 0.0,
+            'z': 0.0,
+            'speakerLabel': '',
+            'cartesian': 1
+        }
+        
+        # Get speaker label
+        speaker_label = block.find(".//ebu:speakerLabel", namespaces=ns)
+        if speaker_label is not None and speaker_label.text:
+            speaker_data['speakerLabel'] = speaker_label.text.strip()
+        
+        # Get cartesian flag
+        cartesian = block.find(".//ebu:cartesian", namespaces=ns)
+        if cartesian is not None and cartesian.text:
+            speaker_data['cartesian'] = int(cartesian.text)
+        
+        # Get position coordinates
+        for pos in block.xpath(".//ebu:position", namespaces=ns):
+            coord = pos.attrib.get("coordinate", "")
+            value = float(pos.text) if pos.text else 0.0
+            
+            if coord == "X":
+                speaker_data['x'] = value
+            elif coord == "Y":
+                speaker_data['y'] = value
+            elif coord == "Z":
+                speaker_data['z'] = value
+        
+        direct_speakers[channel_name] = speaker_data
+    
+    if not direct_speakers:
+        raise ValueError(f"No DirectSpeaker channels found in {xmlPath}")
+    
+    os.makedirs(os.path.dirname(outputPath), exist_ok=True)
+
+    with open(outputPath, 'w') as f:
+        json.dump(direct_speakers, f, indent=2)
+
+    print(f"Saved DirectSpeaker data to {outputPath}")
+    return direct_speakers
+
 
 def parseMetadata(xmlPath, ToggleExportJSON = True, TogglePrintSummary = True):
     """CALLS OTHER FUNCTIONS - parses metadata from XML file, optionally exports to JSON and prints summary"""
     objectsDict = extractObjectPositions(xmlPath)
 
     if ToggleExportJSON:
-        saveObjectData(objectsDict, outputPath="data/currentObjectData.json")
+        saveObjectData(objectsDict, outputPath="data/objectData.json")
 
     if TogglePrintSummary:
         from src.analyzeMetadata import printSummary
-        printSummary(currentObjectDataPath="data/currentObjectData.json", togglePositionChanges=False)
-
-    getGlobalData(xmlPath, outputPath="data/currentGlobalData.json")
+        printSummary(objectDataPath="data/objectData.json", togglePositionChanges=False)
+    getGlobalData(xmlPath, outputPath="data/globalData.json")
     print("Extracted global technical metadata")
+
+    getDirectSpeakerData(xmlPath, outputPath="data/directSpeakerData.json")
+    print("Extracted DirectSpeaker channel metadata")
 
     return objectsDict

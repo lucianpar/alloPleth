@@ -17,3 +17,7 @@ pip install -r requirements.txt
 # FOR TESTING
 
 run main. terminal should output a metadata summary. in data/currentObjectData.json you can view a parsed version of the metadata. the xml has the raw metadata
+
+# Testing Files found at:
+
+https://zenodo.org/records/15268471
