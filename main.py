@@ -1,5 +1,5 @@
 from src.extractMetadata import extractMetaData
-from src.parser import parseMetadata
+from src.parser import parseMetadata, getGlobalData
 from src.visObjects import animateObjects
 
 
@@ -26,5 +26,7 @@ reformattedMetadata = parseMetadata(xmlPath, ToggleExportJSON=True, TogglePrintS
 # print("\nCreating animation")
 # animateObjects(reformattedMetadata, duration_seconds=60, fps=10, speed_multiplier=10.0)
 
+
 '''
+
 print("\nDone")

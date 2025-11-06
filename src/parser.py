@@ -91,7 +91,7 @@ def extractObjectPositions(xml_path):
     
     return objects
 
-def saveObjectData(objectsDict, outputPath="../data/currentObjectData.json"):
+def saveObjectData(objectsDict, outputPath="data/currentObjectData.json"):
     os.makedirs(os.path.dirname(outputPath), exist_ok=True)
 
     with open(outputPath, 'w') as f:
@@ -99,7 +99,7 @@ def saveObjectData(objectsDict, outputPath="../data/currentObjectData.json"):
 
     print(f"Saved object data to {outputPath}")
 
-def loadObjectData(inputPath="../data/currentObjectData.json"):
+def loadObjectData(inputPath="data/currentObjectData.json"):
     if not os.path.exists(inputPath):
         raise FileNotFoundError(f"No object data file found at {inputPath}")
 
@@ -131,16 +131,41 @@ def getPositionAtTime(blocks, time_seconds):
     
     return None
 
+def getGlobalData(xmlPath, outputPath="data/currentGlobalData.json"):
+    """Extract all fields from the XML file's <Technical> section and save to JSON."""
+    tree = etree.parse(xmlPath)
+    technicalData = tree.find(".//Technical")
+
+    if technicalData is None:
+        raise ValueError(f"No <Technical> section found in {xmlPath}")
+    
+    global_data = {}   
+    for elem in technicalData:
+        tag = elem.tag.strip()
+        text = elem.text.strip() if elem.text else ""
+        global_data[tag] = text
+    
+    os.makedirs(os.path.dirname(outputPath), exist_ok=True)
+
+    with open(outputPath, 'w') as f:
+        json.dump(global_data, f, indent=2)
+
+    print(f"Saved technical metadata to {outputPath}")
+    return global_data
+
 
 def parseMetadata(xmlPath, ToggleExportJSON = True, TogglePrintSummary = True):
     """CALLS OTHER FUNCTIONS - parses metadata from XML file, optionally exports to JSON and prints summary"""
     objectsDict = extractObjectPositions(xmlPath)
 
     if ToggleExportJSON:
-        saveObjectData(objectsDict, outputPath="../data/currentObjectData.json")
+        saveObjectData(objectsDict, outputPath="data/currentObjectData.json")
 
     if TogglePrintSummary:
         from src.analyzeMetadata import printSummary
-        printSummary(currentObjectDataPath="../data/currentObjectData.json", togglePositionChanges=False)
+        printSummary(currentObjectDataPath="data/currentObjectData.json", togglePositionChanges=False)
+
+    getGlobalData(xmlPath, outputPath="data/currentGlobalData.json")
+    print("Extracted global technical metadata")
 
     return objectsDict
