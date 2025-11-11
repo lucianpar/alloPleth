@@ -4,17 +4,17 @@ from src.visObjects import animateObjects
 
 
 extractedMetadata = None
-'''commenting out for now
+#commenting out for now
 print("Extracting ADM metadata from WAV file...")
-extractedMetadata = extractMetaData("data/POE-ATMOS-FINAL.wav", "data/POE-ATMOS-FINAL-metadata.xml")
-'''
+extractedMetadata = extractMetaData("data/PentaSphere_Circ_Schreker_ADM_PresesntationMix.wav", "data/currentMetaData.xml")
+
 
 if extractedMetadata:
     xmlPath = extractedMetadata
     print(f"Using extracted XML metadata at {xmlPath}")
 else:
     print("Using default XML metadata file")
-    xmlPath = "data/POE-ATMOS-FINAL-metadata.xml"
+    xmlPath = "data/currentMetaData.xml"
 
 # Extract all object metada (position and width are key here). toggle exporting a human readable json file for analysis. printing summary is based on that json file. for now, the animation is not based on the json file, but directly from the parsed data structure
 print("Parsing ADM metadata...")
