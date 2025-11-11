@@ -13,3 +13,5 @@
 - bundle as one nice tool that can be accessed from command line
 
 - build player in allolib that can cleanly handle these
+
+- package the whole decoder into 1 alloapp - uses speaker layout json

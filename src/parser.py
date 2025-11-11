@@ -68,6 +68,11 @@ def extractObjectPositions(xml_path):
                     position_data['z'] = value
             
             # Extract additional metadata if present
+            # Get channel ID from the parent channel element
+            channel_id = channel.attrib.get("audioChannelFormatID", "")
+            if channel_id:
+                position_data['channelID'] = channel_id
+                
             cartesian = block.find(".//ebu:cartesian", namespaces=ns)
             if cartesian is not None:
                 position_data['cartesian'] = int(cartesian.text) if cartesian.text else 1
@@ -75,7 +80,6 @@ def extractObjectPositions(xml_path):
             width = block.find(".//ebu:width", namespaces=ns)
             if width is not None:
                 position_data['width'] = float(width.text) if width.text else None
-                
             depth = block.find(".//ebu:depth", namespaces=ns)
             if depth is not None:
                 position_data['depth'] = float(depth.text) if depth.text else None
