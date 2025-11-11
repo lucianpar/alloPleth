@@ -225,16 +225,18 @@ def parseMetadata(xmlPath, ToggleExportJSON = True, TogglePrintSummary = True):
     """CALLS OTHER FUNCTIONS - parses metadata from XML file, optionally exports to JSON and prints summary"""
     objectsDict = extractObjectPositions(xmlPath)
 
+    getGlobalData(xmlPath, outputPath="data/globalData.json")
+    print("Extracted global technical metadata")
+
+    getDirectSpeakerData(xmlPath, outputPath="data/directSpeakerData.json")
+    print("Extracted DirectSpeaker channel metadata")
+
     if ToggleExportJSON:
         saveObjectData(objectsDict, outputPath="data/objectData.json")
 
     if TogglePrintSummary:
         from src.analyzeMetadata import printSummary
         printSummary(objectDataPath="data/objectData.json", togglePositionChanges=False)
-    getGlobalData(xmlPath, outputPath="data/globalData.json")
-    print("Extracted global technical metadata")
-
-    getDirectSpeakerData(xmlPath, outputPath="data/directSpeakerData.json")
-    print("Extracted DirectSpeaker channel metadata")
+    
 
     return objectsDict
