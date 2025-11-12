@@ -23,7 +23,7 @@ def channelHasAudio(file_path, threshold_db=-100, chunk_size=48000):
     
     print(f"Scanning {channels} channels in '{file_path}'...")
     
-    for ch_idx in range(channels):
+    for channelIndex in range(channels):
         max_rms_db = -np.inf
         
         for chunk_idx in range(num_samples):
@@ -33,7 +33,7 @@ def channelHasAudio(file_path, threshold_db=-100, chunk_size=48000):
             
             frames_to_read = min(chunk_size, total_frames - start_frame)
             chunk = sf.read(file_path, start=start_frame, frames=frames_to_read, always_2d=True)
-            channel_data = chunk[0][:, ch_idx]
+            channel_data = chunk[0][:, channelIndex]
             rms = np.sqrt(np.mean(channel_data ** 2))
             rms_db = 20 * np.log10(rms + 1e-10)
             if rms_db > max_rms_db:
@@ -43,12 +43,12 @@ def channelHasAudio(file_path, threshold_db=-100, chunk_size=48000):
         
         active = max_rms_db > threshold_db
         active_data.append({
-            "channel_index": ch_idx,
+            "channel_index": channelIndex,
             "rms_db": round(float(max_rms_db), 2),
             "contains_audio": bool(active)
         })
         
-        print(f"  Channel {ch_idx+1}/{channels} scanned (rms_db={round(float(max_rms_db),2)}, contains_audio={active})")
+        print(f"  Channel {channelIndex+1}/{channels} scanned (rms_db={round(float(max_rms_db),2)}, contains_audio={active})")
     
     elapsed = time.time() - start_time
     print(f"Scan complete: {channels} channels processed in {elapsed:.2f} seconds.")

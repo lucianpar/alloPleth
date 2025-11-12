@@ -45,7 +45,7 @@ reformattedMetadata = parseMetadata(xmlPath, ToggleExportJSON=True, TogglePrintS
 print("\nCreating spatial instructions...")
 spatialInstructions = createSpatialInstructionsCSV(
     processed_dir="processedData",
-    output_path="forExport/spatialInstructions.json"
+    output_path="forExport/spatialInstructions.csv"
 )
 
 print("\nDone")
