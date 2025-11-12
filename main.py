@@ -1,12 +1,13 @@
 from src.extractMetadata import extractMetaData
 from src.parser import parseMetadata, getGlobalData
-from src.visObjects import animateObjects
+#from src.visObjects import animateObjects
+from src.createSpatialInstructions import createSpatialInstructionsCSV
 
 
 extractedMetadata = None
 #commenting out for now
 print("Extracting ADM metadata from WAV file...")
-extractedMetadata = extractMetaData("sourceData/PentaSphere_Circ_Schreker_ADM_PresesntationMix.wav", "processedData/currentMetaData.xml")
+extractedMetadata = extractMetaData("sourceData/POE-ATMOS-FINAL.wav", "processedData/currentMetaData.xml")
 
 
 if extractedMetadata:
@@ -28,5 +29,11 @@ reformattedMetadata = parseMetadata(xmlPath, ToggleExportJSON=True, TogglePrintS
 
 
 '''
+
+print("\nCreating spatial instructions...")
+spatialInstructions = createSpatialInstructionsCSV(
+    processed_dir="processedData",
+    output_path="forExport/spatialInstructions.json"
+)
 
 print("\nDone")

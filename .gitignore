@@ -44,3 +44,7 @@ bin/
 # IDE-specific files
 .idea/
 .vscode/
+
+#data
+.json
+.csv
