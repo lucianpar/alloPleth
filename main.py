@@ -2,12 +2,22 @@ from src.extractMetadata import extractMetaData
 from src.parser import parseMetadata, getGlobalData
 #from src.visObjects import animateObjects
 from src.createSpatialInstructions import createSpatialInstructionsCSV
+from src.checkAudioChannels import exportAudioActivity
+
+
+
+
+sourceADMFile = "sourceData/POE-ATMOS-FINAL.wav"
 
 
 extractedMetadata = None
 #commenting out for now
+
+print("\nChecking audio channels for content...")
+exportAudioActivity(sourceADMFile)
+
 print("Extracting ADM metadata from WAV file...")
-extractedMetadata = extractMetaData("sourceData/POE-ATMOS-FINAL.wav", "processedData/currentMetaData.xml")
+extractedMetadata = extractMetaData(sourceADMFile, "processedData/currentMetaData.xml")
 
 
 if extractedMetadata:
@@ -29,6 +39,8 @@ reformattedMetadata = parseMetadata(xmlPath, ToggleExportJSON=True, TogglePrintS
 
 
 '''
+
+
 
 print("\nCreating spatial instructions...")
 spatialInstructions = createSpatialInstructionsCSV(
