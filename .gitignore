@@ -1,6 +1,8 @@
 # Byte-compiled files
 __pycache__/
 *.py[cod]
+*.pyc
+
 *$py.class
 
 # Virtual environments
@@ -11,11 +13,19 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
-# External libraries
+pyvenv.cfg
+site-packages/
+share/
+bin/
 lib/
 lib64/
-site-packages/
+
+
+# External libraries
+
+lib/python3.12/site-packages
+
+
 
 # OS-specific files
 .DS_Store
@@ -25,6 +35,11 @@ Thumbs.db
 *.log
 *.tmp
 *.temp
+bin/
 
 # Ignore WAV files
 *.wav
+
+# IDE-specific files
+.idea/
+.vscode/
