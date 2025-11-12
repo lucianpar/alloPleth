@@ -1,0 +1,102 @@
+{
+  "RoomCentricLeft": {
+    "channelID": "AC_00011001",
+    "channelName": "RoomCentricLeft",
+    "blockID": "AB_00011001_00000001",
+    "x": -1.0,
+    "y": 1.0,
+    "z": 0.0,
+    "speakerLabel": "RC_L",
+    "cartesian": 1
+  },
+  "RoomCentricRight": {
+    "channelID": "AC_00011002",
+    "channelName": "RoomCentricRight",
+    "blockID": "AB_00011002_00000001",
+    "x": 1.0,
+    "y": 1.0,
+    "z": 0.0,
+    "speakerLabel": "RC_R",
+    "cartesian": 1
+  },
+  "RoomCentricCenter": {
+    "channelID": "AC_00011003",
+    "channelName": "RoomCentricCenter",
+    "blockID": "AB_00011003_00000001",
+    "x": 0.0,
+    "y": 1.0,
+    "z": 0.0,
+    "speakerLabel": "RC_C",
+    "cartesian": 1
+  },
+  "RoomCentricLFE": {
+    "channelID": "AC_00011004",
+    "channelName": "RoomCentricLFE",
+    "blockID": "AB_00011004_00000001",
+    "x": -1.0,
+    "y": 1.0,
+    "z": -1.0,
+    "speakerLabel": "RC_LFE",
+    "cartesian": 1
+  },
+  "RoomCentricLeftSideSurround": {
+    "channelID": "AC_00011005",
+    "channelName": "RoomCentricLeftSideSurround",
+    "blockID": "AB_00011005_00000001",
+    "x": -1.0,
+    "y": 0.0,
+    "z": 0.0,
+    "speakerLabel": "RC_Lss",
+    "cartesian": 1
+  },
+  "RoomCentricRightSideSurround": {
+    "channelID": "AC_00011006",
+    "channelName": "RoomCentricRightSideSurround",
+    "blockID": "AB_00011006_00000001",
+    "x": 1.0,
+    "y": 0.0,
+    "z": 0.0,
+    "speakerLabel": "RC_Rss",
+    "cartesian": 1
+  },
+  "RoomCentricLeftRearSurround": {
+    "channelID": "AC_00011007",
+    "channelName": "RoomCentricLeftRearSurround",
+    "blockID": "AB_00011007_00000001",
+    "x": -1.0,
+    "y": -1.0,
+    "z": 0.0,
+    "speakerLabel": "RC_Lrs",
+    "cartesian": 1
+  },
+  "RoomCentricRightRearSurround": {
+    "channelID": "AC_00011008",
+    "channelName": "RoomCentricRightRearSurround",
+    "blockID": "AB_00011008_00000001",
+    "x": 1.0,
+    "y": -1.0,
+    "z": 0.0,
+    "speakerLabel": "RC_Rrs",
+    "cartesian": 1
+  },
+  "RoomCentricLeftTopSurround": {
+    "channelID": "AC_00011009",
+    "channelName": "RoomCentricLeftTopSurround",
+    "blockID": "AB_00011009_00000001",
+    "x": -1.0,
+    "y": 0.0,
+    "z": 1.0,
+    "speakerLabel": "RC_Lts",
+    "cartesian": 1
+  },
+  "RoomCentricRightTopSurround": {
+    "channelID": "AC_0001100a",
+    "channelName": "RoomCentricRightTopSurround",
+    "blockID": "AB_0001100a_00000001",
+    "x": 1.0,
+    "y": 0.0,
+    "z": 1.0,
+    "speakerLabel": "RC_Rts",
+    "cartesian": 1
+  }
+}

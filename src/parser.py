@@ -68,7 +68,7 @@ def extractObjectPositions(xml_path):
                     position_data['z'] = value
             
             # Extract additional metadata if present
-            # Get channel ID from the parent channel element
+            # Get channel ID from the parent channel element. not sure how i should format this yet 
             channel_id = channel.attrib.get("audioChannelFormatID", "")
             if channel_id:
                 position_data['channelID'] = channel_id
@@ -95,7 +95,7 @@ def extractObjectPositions(xml_path):
     
     return objects
 
-def saveObjectData(objectsDict, outputPath="data/objectData.json"):
+def saveObjectData(objectsDict, outputPath="processedData/objectData.json"):
     os.makedirs(os.path.dirname(outputPath), exist_ok=True)
 
     with open(outputPath, 'w') as f:
@@ -103,7 +103,7 @@ def saveObjectData(objectsDict, outputPath="data/objectData.json"):
 
     print(f"Saved object data to {outputPath}")
 
-def loadObjectData(inputPath="data/objectData.json"):
+def loadObjectData(inputPath="processedData/objectData.json"):
     if not os.path.exists(inputPath):
         raise FileNotFoundError(f"No object data file found at {inputPath}")
 
@@ -135,7 +135,7 @@ def getPositionAtTime(blocks, time_seconds):
     
     return None
 
-def getGlobalData(xmlPath, outputPath="data/globalData.json"):
+def getGlobalData(xmlPath, outputPath="processedData/globalData.json"):
     """Extract all fields from the XML file's <Technical> section and save to JSON."""
     tree = etree.parse(xmlPath)
     technicalData = tree.find(".//Technical")
@@ -157,7 +157,7 @@ def getGlobalData(xmlPath, outputPath="data/globalData.json"):
     print(f"Saved technical metadata to {outputPath}")
     return global_data
 
-def getDirectSpeakerData(xmlPath, outputPath="data/directSpeakerData.json"):
+def getDirectSpeakerData(xmlPath, outputPath="processedData/directSpeakerData.json"):
     """Extract all DirectSpeaker channel data from the XML file and save to JSON."""
     ns = {"ebu": "urn:ebu:metadata-schema:ebuCore_2016"}
     tree = etree.parse(xmlPath)
@@ -225,18 +225,17 @@ def parseMetadata(xmlPath, ToggleExportJSON = True, TogglePrintSummary = True):
     """CALLS OTHER FUNCTIONS - parses metadata from XML file, optionally exports to JSON and prints summary"""
     objectsDict = extractObjectPositions(xmlPath)
 
-    getGlobalData(xmlPath, outputPath="data/globalData.json")
+    getGlobalData(xmlPath, outputPath="processedData/globalData.json")
     print("Extracted global technical metadata")
 
-    getDirectSpeakerData(xmlPath, outputPath="data/directSpeakerData.json")
+    getDirectSpeakerData(xmlPath, outputPath="processedData/directSpeakerData.json")
     print("Extracted DirectSpeaker channel metadata")
 
     if ToggleExportJSON:
-        saveObjectData(objectsDict, outputPath="data/objectData.json")
-
+        saveObjectData(objectsDict, outputPath="processedData/objectData.json")
     if TogglePrintSummary:
         from src.analyzeMetadata import printSummary
-        printSummary(objectDataPath="data/objectData.json", togglePositionChanges=False)
+        printSummary(objectDataPath="processedData/objectData.json", togglePositionChanges=False)
     
 
     return objectsDict
