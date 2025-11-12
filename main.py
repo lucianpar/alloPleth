@@ -5,8 +5,8 @@ from src.visObjects import animateObjects
 
 extractedMetadata = None
 #commenting out for now
-#print("Extracting ADM metadata from WAV file...")
-#extractedMetadata = extractMetaData("data/PentaSphere_Circ_Schreker_ADM_PresesntationMix.wav", "data/currentMetaData.xml")
+print("Extracting ADM metadata from WAV file...")
+extractedMetadata = extractMetaData("sourceData/PentaSphere_Circ_Schreker_ADM_PresesntationMix.wav", "processedData/currentMetaData.xml")
 
 
 if extractedMetadata:
