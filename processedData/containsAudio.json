@@ -1,6 +1,6 @@
 {
     "sample_rate": 48000,
-    "threshold_db": -60,
+    "threshold_db": -100,
     "channels": [
         {
             "channel_index": 0,
@@ -54,213 +54,214 @@
         },
         {
             "channel_index": 10,
-            "rms_db": -23.39,
+            "rms_db": -80.02,
             "contains_audio": true
         },
         {
             "channel_index": 11,
-            "rms_db": -23.39,
+            "rms_db": -80.38,
             "contains_audio": true
         },
         {
             "channel_index": 12,
-            "rms_db": -24.88,
+            "rms_db": -31.45,
             "contains_audio": true
         },
         {
             "channel_index": 13,
-            "rms_db": -25.23,
+            "rms_db": -31.27,
             "contains_audio": true
         },
         {
             "channel_index": 14,
-            "rms_db": -24.55,
+            "rms_db": -76.96,
             "contains_audio": true
         },
         {
             "channel_index": 15,
-            "rms_db": -26.41,
+            "rms_db": -77.19,
             "contains_audio": true
         },
         {
             "channel_index": 16,
-            "rms_db": -23.57,
+            "rms_db": -73.09,
             "contains_audio": true
         },
         {
             "channel_index": 17,
-            "rms_db": -22.0,
+            "rms_db": -74.05,
             "contains_audio": true
         },
         {
             "channel_index": 18,
-            "rms_db": -31.91,
+            "rms_db": -80.01,
             "contains_audio": true
         },
         {
             "channel_index": 19,
-            "rms_db": -32.59,
+            "rms_db": -79.69,
             "contains_audio": true
         },
         {
             "channel_index": 20,
-            "rms_db": -38.37,
+            "rms_db": -78.22,
             "contains_audio": true
         },
         {
             "channel_index": 21,
-            "rms_db": -38.22,
+            "rms_db": -78.37,
             "contains_audio": true
         },
         {
             "channel_index": 22,
-            "rms_db": -30.31,
+            "rms_db": -77.17,
             "contains_audio": true
         },
         {
             "channel_index": 23,
-            "rms_db": -30.26,
+            "rms_db": -78.28,
             "contains_audio": true
         },
         {
             "channel_index": 24,
-            "rms_db": -30.39,
+            "rms_db": -78.2,
             "contains_audio": true
         },
         {
             "channel_index": 25,
-            "rms_db": -30.21,
+            "rms_db": -77.84,
             "contains_audio": true
         },
         {
             "channel_index": 26,
-            "rms_db": -39.1,
+            "rms_db": -30.48,
             "contains_audio": true
         },
         {
             "channel_index": 27,
-            "rms_db": -40.46,
+            "rms_db": -31.85,
             "contains_audio": true
         },
         {
             "channel_index": 28,
-            "rms_db": -28.84,
+            "rms_db": -72.37,
             "contains_audio": true
         },
         {
             "channel_index": 29,
-            "rms_db": -30.71,
+            "rms_db": -73.05,
             "contains_audio": true
         },
         {
             "channel_index": 30,
-            "rms_db": -22.82,
+            "rms_db": -23.38,
             "contains_audio": true
         },
         {
             "channel_index": 31,
-            "rms_db": -22.01,
+            "rms_db": -22.61,
             "contains_audio": true
         },
         {
             "channel_index": 32,
-            "rms_db": -25.71,
+            "rms_db": -80.82,
             "contains_audio": true
         },
         {
             "channel_index": 33,
-            "rms_db": -25.71,
+            "rms_db": -82.33,
             "contains_audio": true
         },
         {
             "channel_index": 34,
-            "rms_db": -36.5,
+            "rms_db": -79.87,
             "contains_audio": true
         },
         {
             "channel_index": 35,
-            "rms_db": -36.32,
+            "rms_db": -78.98,
             "contains_audio": true
         },
         {
             "channel_index": 36,
-            "rms_db": -44.05,
+            "rms_db": -73.09,
             "contains_audio": true
         },
         {
             "channel_index": 37,
-            "rms_db": -44.89,
+            "rms_db": -74.53,
             "contains_audio": true
         },
         {
             "channel_index": 38,
-            "rms_db": -44.54,
+            "rms_db": -73.09,
             "contains_audio": true
         },
         {
             "channel_index": 39,
-            "rms_db": -45.45,
+            "rms_db": -74.53,
             "contains_audio": true
         },
         {
             "channel_index": 40,
-            "rms_db": -44.73,
+            "rms_db": -73.08,
             "contains_audio": true
         },
         {
             "channel_index": 41,
-            "rms_db": -45.81,
+            "rms_db": -74.53,
             "contains_audio": true
         },
         {
             "channel_index": 42,
-            "rms_db": -44.28,
+            "rms_db": -57.83,
             "contains_audio": true
         },
         {
             "channel_index": 43,
-            "rms_db": -44.85,
+            "rms_db": -58.52,
             "contains_audio": true
         },
         {
             "channel_index": 44,
-            "rms_db": -48.19,
+            "rms_db": -68.83,
             "contains_audio": true
         },
         {
             "channel_index": 45,
-            "rms_db": -49.02,
+            "rms_db": -69.72,
             "contains_audio": true
         },
         {
             "channel_index": 46,
-            "rms_db": -48.09,
+            "rms_db": -69.35,
             "contains_audio": true
         },
         {
             "channel_index": 47,
-            "rms_db": -49.01,
+            "rms_db": -70.26,
             "contains_audio": true
         },
         {
             "channel_index": 48,
-            "rms_db": -43.23,
+            "rms_db": -51.66,
             "contains_audio": true
         },
         {
             "channel_index": 49,
-            "rms_db": -43.45,
+            "rms_db": -53.03,
             "contains_audio": true
         },
         {
             "channel_index": 50,
-            "rms_db": -37.44,
+            "rms_db": -32.18,
             "contains_audio": true
         },
         {
             "channel_index": 51,
-            "rms_db": -38.74,
+            "rms_db": -31.29,
             "contains_audio": true
         }
-    ]
+    ],
+    "elapsed_seconds": 2.41
 }
