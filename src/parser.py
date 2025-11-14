@@ -182,7 +182,7 @@ def getDirectSpeakerData(xmlPath, outputPath="processedData/directSpeakerData.js
             'y': 0.0,
             'z': 0.0,
             'speakerLabel': '',
-            'cartesian': 1
+            'cartesian': 1 # 1 = cartesian, 0 = spherical
         }
         
         # Get speaker label

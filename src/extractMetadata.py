@@ -19,7 +19,7 @@ def extractMetaData(wavPath, outXmlPath):
 
     return outXmlPath
 
-# Example usage
+# example
 # wavFilePath = "../data/POE-ATMOS-FINAL.wav"
 # xmlFilePath = "../data/newPOETest-metadata.xml"
 

@@ -1,14 +1,24 @@
 # IN PROGRESS
 
-- integrating direct speaker data
-- move direct speaker data, global data, and object data into 1 json
-- update analyze file to handle this and print new summary
+- update summary pipeline / analyze file - condense terminal output
+
+# spatial instructions
+
+\*\* create re packing system to take main audio file and object data json and produce a new json with info for spatialization in allolib
+
+- re label spatial instructions only with channels with audio
+- split out all channels that contain audio as individual audio files (eveluate if necessary)
+  - export each as object 1, 2, 3, etc
+- package into export folder
+
+- explore : https://github.com/phenyque/pyvbap
 
 # TO DO LATER
 
-- start testing examples from https://zenodo.org/records/15268471
+-make notebook
 
-- create re packing system to take main audio file and object data json and produce a new json with info for spatialization in allolib
+- start testing examples from https://zenodo.org/records/15268471
+- width parameter
 
 - bundle as one nice tool that can be accessed from command line
 

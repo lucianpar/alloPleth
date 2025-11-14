@@ -6,7 +6,7 @@ def loadProcessedData(processed_dir="processedData"):
     """Load all JSON files from processedData directory.
     
     Returns:
-        dict: Contains 'globalData', 'directSpeakerData', and 'objectData'
+        dict: with 'globalData', 'directSpeakerData', and 'objectData'
     """
     data = {}
     
