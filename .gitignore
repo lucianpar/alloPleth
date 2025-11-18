@@ -52,6 +52,8 @@ bin/
 
 #c ++ stuff 
 # Ignore AlloLib build directory
+build/
+
 thirdparty/allolib-build/
 thirdparty/allolib/build/
 thirdparty/allolib/**/CMakeFiles/
