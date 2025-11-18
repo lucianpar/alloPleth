@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc librtmidi.a CMakeFiles/rtmidi.dir/RtMidi.cpp.o CMakeFiles/rtmidi.dir/rtmidi_c.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib librtmidi.a

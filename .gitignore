@@ -48,3 +48,12 @@ bin/
 #data
 .json
 .csv
+
+
+#c ++ stuff 
+# Ignore AlloLib build directory
+thirdparty/allolib-build/
+thirdparty/allolib/build/
+thirdparty/allolib/**/CMakeFiles/
+thirdparty/allolib/**/CMakeCache.txt
+thirdparty/allolib/**/Makefile
