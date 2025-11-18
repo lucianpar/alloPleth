@@ -2,6 +2,7 @@ import subprocess
 import os
 
 def extractMetaData(wavPath, outXmlPath):
+    print("Extracting ADM metadata from WAV file...")
     """Run bwfmetaedit on a .wav file and export its ADM XML."""
     cmd = [
         "bwfmetaedit",
@@ -19,9 +20,5 @@ def extractMetaData(wavPath, outXmlPath):
 
     return outXmlPath
 
-# example
-# wavFilePath = "../data/POE-ATMOS-FINAL.wav"
-# xmlFilePath = "../data/newPOETest-metadata.xml"
 
-# extractMetaData(wavFilePath, xmlFilePath)
 

@@ -4,7 +4,7 @@ import numpy as np
 import soundfile as sf
 import time
 
-def channelHasAudio(file_path, threshold_db=-100, chunk_size=48000):
+def channelHasAudio(file_path, threshold_db=-100, chunk_size=48000, printChannelUpdate=True):
     """Check which channels of an audio file contain audio above a threshold (in dBFS).
     
     Uses chunked processing for speed - samples audio in chunks rather than loading entire file.
@@ -15,7 +15,7 @@ def channelHasAudio(file_path, threshold_db=-100, chunk_size=48000):
     channels = info.channels
     total_frames = info.frames
     
-    num_samples = 30 #fine tuning for speed vs accuracy.
+    num_samples = 30 #fine tuning for speed vs accuracy. not sure about ideal value
     skip = max(1, total_frames // (chunk_size * num_samples))
     
     active_data = []
@@ -25,9 +25,9 @@ def channelHasAudio(file_path, threshold_db=-100, chunk_size=48000):
     
     for channelIndex in range(channels):
         max_rms_db = -np.inf
-        
-        for chunk_idx in range(num_samples):
-            start_frame = chunk_idx * skip * chunk_size
+
+        for chunkIndex in range(num_samples):
+            start_frame = chunkIndex * skip * chunk_size
             if start_frame >= total_frames:
                 break
             
@@ -47,8 +47,8 @@ def channelHasAudio(file_path, threshold_db=-100, chunk_size=48000):
             "rms_db": round(float(max_rms_db), 2),
             "contains_audio": bool(active)
         })
-        
-        print(f"  Channel {channelIndex+1}/{channels} scanned (rms_db={round(float(max_rms_db),2)}, contains_audio={active})")
+        if printChannelUpdate:
+            print(f"  Channel {channelIndex+1}/{channels} scanned (rms_db={round(float(max_rms_db),2)}, contains_audio={active})")
     
     elapsed = time.time() - start_time
     print(f"Scan complete: {channels} channels processed in {elapsed:.2f} seconds.")

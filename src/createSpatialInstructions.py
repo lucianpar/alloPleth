@@ -132,9 +132,10 @@ def createSpatialInstructionsCSV(processed_dir="processedData", output_path="for
     - channel: numerical channel index (1-10 for DirectSpeakers, 11+ for objects)
     - id: object/speaker name
     - has_audio: True/False based on containsAudio.json
+    - dynamic: True/False (True = moving object, False = static)
     - time: timestamp in seconds
     - x,y,z: cartesian coordinates
-    - dynamic: True/False (True = moving object, False = static)
+    
     
     Static channels (DirectSpeakers and non-moving objects) are placed first,
     followed by dynamic channels.
