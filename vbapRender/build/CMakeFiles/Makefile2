@@ -306,7 +306,7 @@ CMakeFiles/sonoPleth_vbap_render.dir/all: allolib-build/external/rtaudio/CMakeFi
 CMakeFiles/sonoPleth_vbap_render.dir/all: allolib-build/external/rtmidi/CMakeFiles/rtmidi.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sonoPleth_vbap_render.dir/build.make CMakeFiles/sonoPleth_vbap_render.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sonoPleth_vbap_render.dir/build.make CMakeFiles/sonoPleth_vbap_render.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=98,99 "Built target sonoPleth_vbap_render"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=96,97,98,99 "Built target sonoPleth_vbap_render"
 .PHONY : CMakeFiles/sonoPleth_vbap_render.dir/all
 
 # Build rule for subdir invocation for target.
@@ -339,12 +339,12 @@ allolib-build/CMakeFiles/al.dir/all: allolib-build/external/rtaudio/CMakeFiles/r
 allolib-build/CMakeFiles/al.dir/all: allolib-build/external/rtmidi/CMakeFiles/rtmidi.dir/all
 	$(MAKE) $(MAKESILENT) -f allolib-build/CMakeFiles/al.dir/build.make allolib-build/CMakeFiles/al.dir/depend
 	$(MAKE) $(MAKESILENT) -f allolib-build/CMakeFiles/al.dir/build.make allolib-build/CMakeFiles/al.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72 "Built target al"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71 "Built target al"
 .PHONY : allolib-build/CMakeFiles/al.dir/all
 
 # Build rule for subdir invocation for target.
 allolib-build/CMakeFiles/al.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles 97
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles 95
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 allolib-build/CMakeFiles/al.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles 0
 .PHONY : allolib-build/CMakeFiles/al.dir/rule
@@ -365,7 +365,7 @@ allolib-build/CMakeFiles/al.dir/clean:
 allolib-build/external/CMakeFiles/imgui.dir/all:
 	$(MAKE) $(MAKESILENT) -f allolib-build/external/CMakeFiles/imgui.dir/build.make allolib-build/external/CMakeFiles/imgui.dir/depend
 	$(MAKE) $(MAKESILENT) -f allolib-build/external/CMakeFiles/imgui.dir/build.make allolib-build/external/CMakeFiles/imgui.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=84,85,86 "Built target imgui"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=83,84,85 "Built target imgui"
 .PHONY : allolib-build/external/CMakeFiles/imgui.dir/all
 
 # Build rule for subdir invocation for target.
@@ -391,7 +391,7 @@ allolib-build/external/CMakeFiles/imgui.dir/clean:
 allolib-build/external/CMakeFiles/oscpack.dir/all:
 	$(MAKE) $(MAKESILENT) -f allolib-build/external/CMakeFiles/oscpack.dir/build.make allolib-build/external/CMakeFiles/oscpack.dir/depend
 	$(MAKE) $(MAKESILENT) -f allolib-build/external/CMakeFiles/oscpack.dir/build.make allolib-build/external/CMakeFiles/oscpack.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=87,88,89,90,91 "Built target oscpack"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=86,87,88,89,90 "Built target oscpack"
 .PHONY : allolib-build/external/CMakeFiles/oscpack.dir/all
 
 # Build rule for subdir invocation for target.
@@ -417,12 +417,12 @@ allolib-build/external/CMakeFiles/oscpack.dir/clean:
 allolib-build/external/CMakeFiles/serial.dir/all:
 	$(MAKE) $(MAKESILENT) -f allolib-build/external/CMakeFiles/serial.dir/build.make allolib-build/external/CMakeFiles/serial.dir/depend
 	$(MAKE) $(MAKESILENT) -f allolib-build/external/CMakeFiles/serial.dir/build.make allolib-build/external/CMakeFiles/serial.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=95,96,97 "Built target serial"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=94,95 "Built target serial"
 .PHONY : allolib-build/external/CMakeFiles/serial.dir/all
 
 # Build rule for subdir invocation for target.
 allolib-build/external/CMakeFiles/serial.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 allolib-build/external/CMakeFiles/serial.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles 0
 .PHONY : allolib-build/external/CMakeFiles/serial.dir/rule
@@ -495,7 +495,7 @@ allolib-build/external/glfw/src/CMakeFiles/update_mappings.dir/clean:
 allolib-build/external/glfw/src/CMakeFiles/glfw.dir/all:
 	$(MAKE) $(MAKESILENT) -f allolib-build/external/glfw/src/CMakeFiles/glfw.dir/build.make allolib-build/external/glfw/src/CMakeFiles/glfw.dir/depend
 	$(MAKE) $(MAKESILENT) -f allolib-build/external/glfw/src/CMakeFiles/glfw.dir/build.make allolib-build/external/glfw/src/CMakeFiles/glfw.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=74,75,76,77,78,79,80,81,82,83 "Built target glfw"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=73,74,75,76,77,78,79,80,81,82 "Built target glfw"
 .PHONY : allolib-build/external/glfw/src/CMakeFiles/glfw.dir/all
 
 # Build rule for subdir invocation for target.
@@ -521,7 +521,7 @@ allolib-build/external/glfw/src/CMakeFiles/glfw.dir/clean:
 allolib-build/external/glad/CMakeFiles/glad.dir/all:
 	$(MAKE) $(MAKESILENT) -f allolib-build/external/glad/CMakeFiles/glad.dir/build.make allolib-build/external/glad/CMakeFiles/glad.dir/depend
 	$(MAKE) $(MAKESILENT) -f allolib-build/external/glad/CMakeFiles/glad.dir/build.make allolib-build/external/glad/CMakeFiles/glad.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=73 "Built target glad"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=72 "Built target glad"
 .PHONY : allolib-build/external/glad/CMakeFiles/glad.dir/all
 
 # Build rule for subdir invocation for target.
@@ -547,7 +547,7 @@ allolib-build/external/glad/CMakeFiles/glad.dir/clean:
 allolib-build/external/rtaudio/CMakeFiles/rtaudio.dir/all:
 	$(MAKE) $(MAKESILENT) -f allolib-build/external/rtaudio/CMakeFiles/rtaudio.dir/build.make allolib-build/external/rtaudio/CMakeFiles/rtaudio.dir/depend
 	$(MAKE) $(MAKESILENT) -f allolib-build/external/rtaudio/CMakeFiles/rtaudio.dir/build.make allolib-build/external/rtaudio/CMakeFiles/rtaudio.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=92 "Built target rtaudio"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=91 "Built target rtaudio"
 .PHONY : allolib-build/external/rtaudio/CMakeFiles/rtaudio.dir/all
 
 # Build rule for subdir invocation for target.
@@ -599,7 +599,7 @@ allolib-build/external/rtaudio/CMakeFiles/RTAUDIO_UNINSTALL.dir/clean:
 allolib-build/external/rtmidi/CMakeFiles/rtmidi.dir/all:
 	$(MAKE) $(MAKESILENT) -f allolib-build/external/rtmidi/CMakeFiles/rtmidi.dir/build.make allolib-build/external/rtmidi/CMakeFiles/rtmidi.dir/depend
 	$(MAKE) $(MAKESILENT) -f allolib-build/external/rtmidi/CMakeFiles/rtmidi.dir/build.make allolib-build/external/rtmidi/CMakeFiles/rtmidi.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=93,94 "Built target rtmidi"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=92,93 "Built target rtmidi"
 .PHONY : allolib-build/external/rtmidi/CMakeFiles/rtmidi.dir/all
 
 # Build rule for subdir invocation for target.

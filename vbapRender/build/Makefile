@@ -354,6 +354,30 @@ src/JSONLoader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sonoPleth_vbap_render.dir/build.make CMakeFiles/sonoPleth_vbap_render.dir/src/JSONLoader.cpp.s
 .PHONY : src/JSONLoader.cpp.s
 
+src/LayoutLoader.o: src/LayoutLoader.cpp.o
+.PHONY : src/LayoutLoader.o
+
+# target to build an object file
+src/LayoutLoader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sonoPleth_vbap_render.dir/build.make CMakeFiles/sonoPleth_vbap_render.dir/src/LayoutLoader.cpp.o
+.PHONY : src/LayoutLoader.cpp.o
+
+src/LayoutLoader.i: src/LayoutLoader.cpp.i
+.PHONY : src/LayoutLoader.i
+
+# target to preprocess a source file
+src/LayoutLoader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sonoPleth_vbap_render.dir/build.make CMakeFiles/sonoPleth_vbap_render.dir/src/LayoutLoader.cpp.i
+.PHONY : src/LayoutLoader.cpp.i
+
+src/LayoutLoader.s: src/LayoutLoader.cpp.s
+.PHONY : src/LayoutLoader.s
+
+# target to generate assembly for a file
+src/LayoutLoader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sonoPleth_vbap_render.dir/build.make CMakeFiles/sonoPleth_vbap_render.dir/src/LayoutLoader.cpp.s
+.PHONY : src/LayoutLoader.cpp.s
+
 src/VBAPRenderer.o: src/VBAPRenderer.cpp.o
 .PHONY : src/VBAPRenderer.o
 
@@ -377,6 +401,30 @@ src/VBAPRenderer.s: src/VBAPRenderer.cpp.s
 src/VBAPRenderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sonoPleth_vbap_render.dir/build.make CMakeFiles/sonoPleth_vbap_render.dir/src/VBAPRenderer.cpp.s
 .PHONY : src/VBAPRenderer.cpp.s
+
+src/WavUtils.o: src/WavUtils.cpp.o
+.PHONY : src/WavUtils.o
+
+# target to build an object file
+src/WavUtils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sonoPleth_vbap_render.dir/build.make CMakeFiles/sonoPleth_vbap_render.dir/src/WavUtils.cpp.o
+.PHONY : src/WavUtils.cpp.o
+
+src/WavUtils.i: src/WavUtils.cpp.i
+.PHONY : src/WavUtils.i
+
+# target to preprocess a source file
+src/WavUtils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sonoPleth_vbap_render.dir/build.make CMakeFiles/sonoPleth_vbap_render.dir/src/WavUtils.cpp.i
+.PHONY : src/WavUtils.cpp.i
+
+src/WavUtils.s: src/WavUtils.cpp.s
+.PHONY : src/WavUtils.s
+
+# target to generate assembly for a file
+src/WavUtils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sonoPleth_vbap_render.dir/build.make CMakeFiles/sonoPleth_vbap_render.dir/src/WavUtils.cpp.s
+.PHONY : src/WavUtils.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -430,9 +478,15 @@ help:
 	@echo "... src/JSONLoader.o"
 	@echo "... src/JSONLoader.i"
 	@echo "... src/JSONLoader.s"
+	@echo "... src/LayoutLoader.o"
+	@echo "... src/LayoutLoader.i"
+	@echo "... src/LayoutLoader.s"
 	@echo "... src/VBAPRenderer.o"
 	@echo "... src/VBAPRenderer.i"
 	@echo "... src/VBAPRenderer.s"
+	@echo "... src/WavUtils.o"
+	@echo "... src/WavUtils.i"
+	@echo "... src/WavUtils.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

@@ -16,6 +16,8 @@
 
 - switch to internal datastructures instead of many json's, but keep a single debugging json with info
 
+* change everything to be stable build and git submodules instead of libraries?
+
 -make notebook
 
 # Less Immediate

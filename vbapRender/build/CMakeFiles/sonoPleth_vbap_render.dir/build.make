@@ -111,11 +111,41 @@ CMakeFiles/sonoPleth_vbap_render.dir/src/JSONLoader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sonoPleth_vbap_render.dir/src/JSONLoader.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lucian/Projects/sonoPleth/vbapRender/src/JSONLoader.cpp -o CMakeFiles/sonoPleth_vbap_render.dir/src/JSONLoader.cpp.s
 
+CMakeFiles/sonoPleth_vbap_render.dir/src/LayoutLoader.cpp.o: CMakeFiles/sonoPleth_vbap_render.dir/flags.make
+CMakeFiles/sonoPleth_vbap_render.dir/src/LayoutLoader.cpp.o: /Users/lucian/Projects/sonoPleth/vbapRender/src/LayoutLoader.cpp
+CMakeFiles/sonoPleth_vbap_render.dir/src/LayoutLoader.cpp.o: CMakeFiles/sonoPleth_vbap_render.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sonoPleth_vbap_render.dir/src/LayoutLoader.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sonoPleth_vbap_render.dir/src/LayoutLoader.cpp.o -MF CMakeFiles/sonoPleth_vbap_render.dir/src/LayoutLoader.cpp.o.d -o CMakeFiles/sonoPleth_vbap_render.dir/src/LayoutLoader.cpp.o -c /Users/lucian/Projects/sonoPleth/vbapRender/src/LayoutLoader.cpp
+
+CMakeFiles/sonoPleth_vbap_render.dir/src/LayoutLoader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sonoPleth_vbap_render.dir/src/LayoutLoader.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/lucian/Projects/sonoPleth/vbapRender/src/LayoutLoader.cpp > CMakeFiles/sonoPleth_vbap_render.dir/src/LayoutLoader.cpp.i
+
+CMakeFiles/sonoPleth_vbap_render.dir/src/LayoutLoader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sonoPleth_vbap_render.dir/src/LayoutLoader.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lucian/Projects/sonoPleth/vbapRender/src/LayoutLoader.cpp -o CMakeFiles/sonoPleth_vbap_render.dir/src/LayoutLoader.cpp.s
+
+CMakeFiles/sonoPleth_vbap_render.dir/src/WavUtils.cpp.o: CMakeFiles/sonoPleth_vbap_render.dir/flags.make
+CMakeFiles/sonoPleth_vbap_render.dir/src/WavUtils.cpp.o: /Users/lucian/Projects/sonoPleth/vbapRender/src/WavUtils.cpp
+CMakeFiles/sonoPleth_vbap_render.dir/src/WavUtils.cpp.o: CMakeFiles/sonoPleth_vbap_render.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/sonoPleth_vbap_render.dir/src/WavUtils.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sonoPleth_vbap_render.dir/src/WavUtils.cpp.o -MF CMakeFiles/sonoPleth_vbap_render.dir/src/WavUtils.cpp.o.d -o CMakeFiles/sonoPleth_vbap_render.dir/src/WavUtils.cpp.o -c /Users/lucian/Projects/sonoPleth/vbapRender/src/WavUtils.cpp
+
+CMakeFiles/sonoPleth_vbap_render.dir/src/WavUtils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sonoPleth_vbap_render.dir/src/WavUtils.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/lucian/Projects/sonoPleth/vbapRender/src/WavUtils.cpp > CMakeFiles/sonoPleth_vbap_render.dir/src/WavUtils.cpp.i
+
+CMakeFiles/sonoPleth_vbap_render.dir/src/WavUtils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sonoPleth_vbap_render.dir/src/WavUtils.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lucian/Projects/sonoPleth/vbapRender/src/WavUtils.cpp -o CMakeFiles/sonoPleth_vbap_render.dir/src/WavUtils.cpp.s
+
 # Object files for target sonoPleth_vbap_render
 sonoPleth_vbap_render_OBJECTS = \
 "CMakeFiles/sonoPleth_vbap_render.dir/src/main.cpp.o" \
 "CMakeFiles/sonoPleth_vbap_render.dir/src/VBAPRenderer.cpp.o" \
-"CMakeFiles/sonoPleth_vbap_render.dir/src/JSONLoader.cpp.o"
+"CMakeFiles/sonoPleth_vbap_render.dir/src/JSONLoader.cpp.o" \
+"CMakeFiles/sonoPleth_vbap_render.dir/src/LayoutLoader.cpp.o" \
+"CMakeFiles/sonoPleth_vbap_render.dir/src/WavUtils.cpp.o"
 
 # External object files for target sonoPleth_vbap_render
 sonoPleth_vbap_render_EXTERNAL_OBJECTS =
@@ -123,6 +153,8 @@ sonoPleth_vbap_render_EXTERNAL_OBJECTS =
 sonoPleth_vbap_render: CMakeFiles/sonoPleth_vbap_render.dir/src/main.cpp.o
 sonoPleth_vbap_render: CMakeFiles/sonoPleth_vbap_render.dir/src/VBAPRenderer.cpp.o
 sonoPleth_vbap_render: CMakeFiles/sonoPleth_vbap_render.dir/src/JSONLoader.cpp.o
+sonoPleth_vbap_render: CMakeFiles/sonoPleth_vbap_render.dir/src/LayoutLoader.cpp.o
+sonoPleth_vbap_render: CMakeFiles/sonoPleth_vbap_render.dir/src/WavUtils.cpp.o
 sonoPleth_vbap_render: CMakeFiles/sonoPleth_vbap_render.dir/build.make
 sonoPleth_vbap_render: allolib-build/libal.a
 sonoPleth_vbap_render: allolib-build/external/Gamma/lib/libGamma.a
@@ -135,7 +167,7 @@ sonoPleth_vbap_render: allolib-build/external/libimgui.a
 sonoPleth_vbap_render: allolib-build/external/liboscpack.a
 sonoPleth_vbap_render: allolib-build/external/libserial.a
 sonoPleth_vbap_render: CMakeFiles/sonoPleth_vbap_render.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable sonoPleth_vbap_render"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/lucian/Projects/sonoPleth/vbapRender/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable sonoPleth_vbap_render"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sonoPleth_vbap_render.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
