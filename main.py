@@ -1,9 +1,9 @@
-from src.extractMetadata import extractMetaData
-from src.parser import parseMetadata, getGlobalData
+from src.analyzeADM.extractMetadata import extractMetaData
+from src.analyzeADM.parser import parseMetadata, getGlobalData
 #from src.visObjects import animateObjects
-from src.checkAudioChannels import exportAudioActivity
-from src.checkAudioChannels import exportAudioActivity
-from src.packageForRender import packageForRender
+from src.analyzeADM.checkAudioChannels import exportAudioActivity
+from src.analyzeADM.checkAudioChannels import exportAudioActivity
+from src.packageADM.packageForRender import packageForRender
 
 
 #current pipeline:
@@ -24,7 +24,7 @@ extractedMetadata = None
 #commenting out for now
 
 print("\nChecking audio channels for content...")
-exportAudioActivity(sourceADMFile)
+exportAudioActivity(sourceADMFile,output_path="processedData/containsAudio.json", threshold_db=-100)
 
 print("Extracting ADM metadata from WAV file...")
 extractedMetadata = extractMetaData(sourceADMFile, "processedData/currentMetaData.xml")
@@ -43,7 +43,6 @@ print("Parsing ADM metadata...")
 reformattedMetadata = parseMetadata(xmlPath, ToggleExportJSON=True, TogglePrintSummary=True) 
 
 #analyze audio channel data for later use in removing obselete channels 
-exportAudioActivity(sourceADMFile,output_path="processedData/containsAudio.json", threshold_db=-100)
 
 packageForRender(sourceADMFile, processedDataDir)
 
@@ -51,3 +50,4 @@ packageForRender(sourceADMFile, processedDataDir)
 
 
 print("\nDone")
+

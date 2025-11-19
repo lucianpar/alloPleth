@@ -55,8 +55,23 @@ def channelHasAudio(file_path, threshold_db=-100, chunk_size=48000, printChannel
     
     return {"sample_rate": sr, "threshold_db": threshold_db, "channels": active_data, "elapsed_seconds": round(elapsed, 2)}
 
+def deleteContainsAudioJSON(output_path="processedData/containsAudio.json"):
+    """
+    Delete the containsAudio.json file if it exists.
+    """
+    file_path = os.path.abspath(output_path)
+    if os.path.exists(file_path):
+        try:
+            os.remove(file_path)
+            print(f"Deleted: {file_path}")
+        except Exception as e:
+            print(f"Warning: Could not delete {file_path}: {e}")
+    else:
+        print(f"No file to delete at: {file_path}")
+
 def exportAudioActivity(file_path, output_path="processedData/containsAudio.json", threshold_db=-100):
     """Process a file and save per-channel activity info as JSON."""
+    deleteContainsAudioJSON(output_path)
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     result = channelHasAudio(file_path, threshold_db)
     with open(output_path, "w") as f:

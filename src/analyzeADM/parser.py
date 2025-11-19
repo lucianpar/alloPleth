@@ -234,7 +234,7 @@ def parseMetadata(xmlPath, ToggleExportJSON = True, TogglePrintSummary = True):
     if ToggleExportJSON:
         saveObjectData(objectsDict, outputPath="processedData/objectData.json")
     if TogglePrintSummary:
-        from src.analyzeMetadata import printSummary
+        from src.analyzeADM.analyzeMetadata import printSummary
         printSummary(objectDataPath="processedData/objectData.json", togglePositionChanges=False)
     
 
