@@ -1,5 +1,7 @@
 # TO DO
 
+- add sampelrate to top of renderInstructions.json output
+
 - make a decodeADM.py with 1 argument (sourceADM)
 
   - basically just main but as CLI, will update to take in speaker config json

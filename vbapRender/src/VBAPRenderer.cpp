@@ -62,41 +62,73 @@ MultiWavData VBAPRenderer::render() {
         totalSamples = std::max(totalSamples, wav.samples.size());
     }
 
+    std::cout << "Total samples: " << totalSamples << "\n";
+    std::cout << "Sample rate: " << sr << "\n";
+    std::cout << "Duration: " << (double)totalSamples / sr << " seconds\n";
+    std::cout << "Number of speakers: " << numSpeakers << "\n";
+    std::cout << "Number of sources: " << mSources.size() << "\n";
+
     MultiWavData out;
     out.sampleRate = sr;
     out.channels = numSpeakers;
     out.samples.resize(numSpeakers);
     for (auto &c : out.samples) c.resize(totalSamples, 0.0f);
 
-    // Create AudioIOData for VBAP to write into
+    // Setup AudioIOData with proper buffer size
+    const int bufferSize = 512;
     al::AudioIOData audioIO;
+    audioIO.framesPerBuffer(bufferSize);
     audioIO.framesPerSecond(sr);
+    audioIO.channelsIn(0);
     audioIO.channelsOut(numSpeakers);
     
-    // Process sample by sample (or use renderBuffer for blocks)
-    for (size_t i = 0; i < totalSamples; i++) {
-        double timeSec = (double)i / (double)sr;
+    // Process in blocks
+    std::vector<float> sourceBuffer(bufferSize);
+    
+    int blocksProcessed = 0;
+    for (size_t blockStart = 0; blockStart < totalSamples; blockStart += bufferSize) {
+        size_t blockEnd = std::min(totalSamples, blockStart + bufferSize);
+        size_t blockLen = blockEnd - blockStart;
         
-        // Prepare output buffers for this frame
-        std::vector<float> frameOutputs(numSpeakers, 0.0f);
-        audioIO.frame(i);
+        if (blocksProcessed % 1000 == 0) {
+            std::cout << "Processing block " << blocksProcessed << " (" 
+                      << (100.0 * blockStart / totalSamples) << "%)\n";
+        }
+        blocksProcessed++;
         
+        // Zero out audio buffers for this block
+        audioIO.zeroOut();
+        
+        // Render each source for this block
         for (auto &[name, kfs] : mSpatial.sources) {
             const MonoWavData &src = mSources.at(name);
-            float sample = (i < src.samples.size() ? src.samples[i] : 0.0f);
             
-            // Get interpolated direction
+            // Fill source buffer for this block
+            for (size_t i = 0; i < blockLen; i++) {
+                size_t globalIdx = blockStart + i;
+                sourceBuffer[i] = (globalIdx < src.samples.size()) ? src.samples[globalIdx] : 0.0f;
+            }
+            
+            // Get position at the start of this block
+            double timeSec = (double)blockStart / (double)sr;
             al::Vec3f dir = interpolateDir(kfs, timeSec);
             
-            // Use VBAP's renderSample - this writes directly to audioIO
-            mVBAP.renderSample(audioIO, dir, sample, i);
+            // Render this source's contribution
+            mVBAP.renderBuffer(audioIO, dir, sourceBuffer.data(), blockLen);
         }
         
-        // Copy from audioIO to our output
-        for (int ch = 0; ch < numSpeakers; ch++) {
-            out.samples[ch][i] = audioIO.out(ch, i);
+        // Copy rendered audio to output
+        audioIO.frame(0);
+        for (size_t i = 0; i < blockLen; i++) {
+            for (int ch = 0; ch < numSpeakers; ch++) {
+                out.samples[ch][blockStart + i] = audioIO.out(ch, i);
+            }
         }
     }
+    
+    std::cout << "Processed " << blocksProcessed << " blocks\n";
+    std::cout << "Output has " << out.samples.size() << " channels\n";
+    std::cout << "Channel 0 has " << out.samples[0].size() << " samples\n";
 
     return out;
 }

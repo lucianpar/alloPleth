@@ -57,11 +57,20 @@ void WavUtils::writeMultichannelWav(const std::string &path,
     info.samplerate = mw.sampleRate;
     info.format = SF_FORMAT_WAV | SF_FORMAT_FLOAT;
 
+    std::cout << "Writing WAV: " << mw.channels << " channels, " 
+              << mw.sampleRate << " Hz\n";
+    std::cout << "Samples per channel: " << mw.samples[0].size() << "\n";
+
     SNDFILE *snd = sf_open(path.c_str(), SFM_WRITE, &info);
-    if (!snd) throw std::runtime_error("Cannot create WAV file");
+    if (!snd) {
+        std::cerr << "Error opening file for write: " << sf_strerror(nullptr) << "\n";
+        throw std::runtime_error("Cannot create WAV file");
+    }
 
     size_t totalSamples = mw.samples[0].size();
     std::vector<float> interleaved(totalSamples * mw.channels);
+
+    std::cout << "Interleaving " << interleaved.size() << " total samples...\n";
 
     for (size_t i = 0; i < totalSamples; i++) {
         for (int ch = 0; ch < mw.channels; ch++) {
@@ -69,6 +78,14 @@ void WavUtils::writeMultichannelWav(const std::string &path,
         }
     }
 
-    sf_write_float(snd, interleaved.data(), interleaved.size());
+    std::cout << "Writing to file...\n";
+    sf_count_t written = sf_write_float(snd, interleaved.data(), interleaved.size());
+    std::cout << "Wrote " << written << " samples (expected " << interleaved.size() << ")\n";
+    
+    if (written != (sf_count_t)interleaved.size()) {
+        std::cerr << "Write error: " << sf_strerror(snd) << "\n";
+    }
+    
     sf_close(snd);
+    std::cout << "File closed\n";
 }
