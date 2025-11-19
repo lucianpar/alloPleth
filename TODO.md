@@ -10,6 +10,8 @@
 
 - do some quick atmos mixes for testing
 
+- update readme
+
 -make notebook
 
 # Less Immediate
