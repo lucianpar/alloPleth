@@ -219,7 +219,7 @@ def createRenderInfoJSON(processed_dir="processedData", output_path="processedDa
         
         # Sort by time
         position_list.sort(key=lambda p: p['time'])
-        sources[f"{channel_num}"] = position_list
+        sources[f"src_{channel_num}"] = position_list
         sources_with_audio += 1
     
     # Create output structure
