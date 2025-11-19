@@ -1,13 +1,23 @@
 from src.extractMetadata import extractMetaData
 from src.parser import parseMetadata, getGlobalData
 #from src.visObjects import animateObjects
-from src.createSpatialInstructions import createSpatialInstructionsCSV
 from src.checkAudioChannels import exportAudioActivity
+from src.checkAudioChannels import exportAudioActivity
+from src.packageForRender import packageForRender
 
+
+#current pipeline:
+# 1. set source
+#2. extract ADM metadata from source wav
+#3. parse ADM metadata into internal data structure (optionally export json for analysis)
+#4. analyze audio channels for content (generate containsAudio.json)
+#5. run packageForRender - this runs repackage (split stems) and createRenderInfo (spatial instructions json)
+#5. 
 
 
 
 sourceADMFile = "sourceData/POE-ATMOS-FINAL.wav"
+processedDataDir = "processedData"
 
 
 extractedMetadata = None
@@ -27,25 +37,17 @@ else:
     print("Using default XML metadata file")
     xmlPath = "data/POE-ATMOS-FINAL-metadata.xml"
 
-# Extract all object metada (position and width are key here). toggle exporting a human readable json file for analysis. printing summary is based on that json file. for now, the animation is not based on the json file, but directly from the parsed data structure
+# Extract all object metada (position and width are key here), direct speaker (used for channel based surround mixing and Low Freqeuency Effect channel) global data. toggle exporting a human readable json file for analysis. printing summary is based on that json file. for now, the rest of the pipeline uses the json's, but this can be changed later to use the internal format directly. potentially keeping 1 json for debugging?
 print("Parsing ADM metadata...")
-reformattedMetadata = parseMetadata(xmlPath, ToggleExportJSON=True, TogglePrintSummary=True)
-#this json is useful for debugging and analysis. currently using an internal data structure for animation / realtime spatialization
+# this internal format is not up to date
+reformattedMetadata = parseMetadata(xmlPath, ToggleExportJSON=True, TogglePrintSummary=True) 
 
-'''commenting out for now, need to deep dive
-#Animate positions over time (first 60 seconds) - not working yet
-# print("\nCreating animation")
-# animateObjects(reformattedMetadata, duration_seconds=60, fps=10, speed_multiplier=10.0)
+#analyze audio channel data for later use in removing obselete channels 
+exportAudioActivity(sourceADMFile,output_path="processedData/containsAudio.json", threshold_db=-100)
 
-
-'''
+packageForRender(sourceADMFile, processedDataDir)
 
 
 
-print("\nCreating spatial instructions...")
-spatialInstructions = createSpatialInstructionsCSV(
-    processed_dir="processedData",
-    output_path="forExport/spatialInstructions.csv"
-)
 
 print("\nDone")
