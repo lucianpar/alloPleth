@@ -12,6 +12,10 @@
 
 - update readme
 
+- transition to render without stem splitting, shouldnt be necessary
+
+- switch to internal datastructures instead of many json's, but keep a single debugging json with info
+
 -make notebook
 
 # Less Immediate
