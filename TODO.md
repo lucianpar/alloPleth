@@ -1,6 +1,7 @@
 # IN PROGRESS
 
-- return to main branch and revisit vbap render later
+- fix directory issue in stageForRender
+- output files wihtout empty files
 - make spatial instructions json
 - dont deal with static objects for now
 

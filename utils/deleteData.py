@@ -4,8 +4,7 @@ import shutil
 
 
 # quick tool for cleaning up processed data
-def deleteData():
-    dir = "processedData"
+def deleteData(dir = "processedData"):
     
     if not os.path.exists(dir):
         print(f"Directory {dir} does not exist.")
