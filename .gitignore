@@ -6,6 +6,9 @@ src/__pycache__
 
 *$py.class
 
+# Initialization flag
+.init_complete
+
 # Virtual environments
 .env/
 .venv/

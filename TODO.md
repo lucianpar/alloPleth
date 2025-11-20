@@ -1,7 +1,6 @@
 # TO DO
 
-- change config CPP to be an init.sh that deals with cpp stuff and the venv dependencies, but good enough for now
-
+- fix commenting prints at the end of pipeline
 - set up simple multichannel file player instance in allolib
 
 - do some quick atmos mixes for testing
