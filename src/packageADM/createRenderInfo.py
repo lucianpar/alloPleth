@@ -12,7 +12,7 @@ def loadProcessedData(processed_dir="processedData"):
     """Load all JSON files from processedData directory.
     
     Returns:
-        dict: with, 'directSpeakerData', and 'objectData'
+        dict: with, 'directSpeakerData', 'objectData', 'globalData'
     """
     data = {}
 
@@ -44,6 +44,16 @@ def loadProcessedData(processed_dir="processedData"):
     else:
         data['containsAudio'] = {}
         print(f"Warning: {channels_contains_audio_path} not found")
+
+    # Load global data for sample rate
+    global_path = os.path.join(processed_dir, "globalData.json")
+    if os.path.exists(global_path):
+        with open(global_path, 'r') as f:
+            data['globalData'] = json.load(f)
+        print(f"Loaded globalData from {global_path}")
+    else:
+        data['globalData'] = {}
+        print(f"Warning: {global_path} not found")
 
     
     return data
@@ -224,6 +234,7 @@ def createRenderInfoJSON(processed_dir="processedData", output_path="processedDa
     
     # Create output structure
     output_data = {
+        "sampleRate": int(data.get('globalData', {}).get('SampleRate', 48000)),
         "sources": sources
     }
     

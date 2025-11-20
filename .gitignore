@@ -55,7 +55,9 @@ processedData/
 
 
 #c ++ stuff 
+vbapRender/build/
 # Ignore AlloLib build directory
+
 build/
 
 thirdparty/allolib-build/
