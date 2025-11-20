@@ -14,9 +14,13 @@ source sonoPleth/bin/activate
 pip install -r requirements.txt
 ```
 
-# FUNCTIONAL FILES:
+# USAGE FILES:
 
-- main.py (will rename to decode) basically a summary file that runs all the other important decoding functions and outputs a terminal summary
+- easy usage
+
+* run python gui/pipeline
+
+- runPipeline.py (will rename to decode) basically a summary file that runs all the other important decoding functions and outputs a terminal summary
 - utils/deleteData.py - deletes data in processedData ( and spatialInstructions.csv?)
 
 # FOR TESTING
