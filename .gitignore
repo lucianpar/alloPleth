@@ -42,6 +42,7 @@ bin/
 processedData/stageForRender/
 processedData/
 
+
 # Ignore WAV files
 *.wav
 
@@ -50,8 +51,9 @@ processedData/
 .vscode/
 
 #data
-.json
-.csv
+*.json
+*.xml
+!vbapRender/allosphere_layout.json
 
 
 #c ++ stuff 
