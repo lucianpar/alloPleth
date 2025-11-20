@@ -23,6 +23,7 @@ from src.analyzeRender import analyzeRenderOutput
 sourceADMFile = "sourceData/POE-ATMOS-FINAL.wav"
 sourceSpeakerLayout = "vbapRender/allosphere_layout.json"
 createRenderAnalysis = True
+#end configure 
 
 #default
 processedDataDir = "processedData"
