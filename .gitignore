@@ -38,6 +38,10 @@ Thumbs.db
 *.temp
 bin/
 
+# data 
+processedData/stageForRender/
+processedData/
+
 # Ignore WAV files
 *.wav
 
