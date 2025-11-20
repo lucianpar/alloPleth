@@ -69,16 +69,16 @@ def run_pipeline(sourceADMFile, sourceSpeakerLayout, createRenderAnalysis=True):
 
 if __name__ == "__main__":
     # CLI mode - parse arguments
-    if len(sys.argv) >= 3:
+    if len(sys.argv) >= 2:
         sourceADMFile = sys.argv[1]
-        sourceSpeakerLayout = sys.argv[2]
+        sourceSpeakerLayout = sys.argv[2] if len(sys.argv) >= 3 else "vbapRender/allosphere_layout.json"
         createRenderAnalysis = True if len(sys.argv) < 4 else sys.argv[3].lower() in ['true', '1', 'yes']
         
         run_pipeline(sourceADMFile, sourceSpeakerLayout, createRenderAnalysis)
     
     else:
         # default mode
-        print("Usage: python runPipeline.py <sourceADMFile> <sourceSpeakerLayout> [createAnalysis]")
+        print("Usage: python runPipeline.py <sourceADMFile> [sourceSpeakerLayout] [createAnalysis]")
         print("\nRunning with default configuration...")
         
         sourceADMFile = "sourceData/POE-ATMOS-FINAL.wav"
