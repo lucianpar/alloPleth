@@ -25,11 +25,11 @@ This will download some boring but functional example Atmos files for running th
 
 in terminal run:
 
-python runPipeline.py [atmos adm wav file path]
-OR
-python runPipeline.py [atmos adm wav file path] [speaker layout json file path] [true / false for creating pdf analysis of final render]
-OR
-python runPipeline.py for default
+*python runPipeline.py [atmos adm wav file path]
+*OR
+*python runPipeline.py [atmos adm wav file path] [speaker layout json file path] [true / false for creating pdf analysis of final render]
+*OR
+\*python runPipeline.py for default
 
 - utils/deleteData.py - deletes data in processedData ( and spatialInstructions.csv?)
 
