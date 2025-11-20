@@ -1,3 +1,4 @@
+from src.configCPP import setupCppTools
 from src.analyzeADM.extractMetadata import extractMetaData
 from src.analyzeADM.parser import parseMetadata, getGlobalData
 from src.analyzeADM.checkAudioChannels import exportAudioActivity
@@ -7,14 +8,14 @@ from src.analyzeRender import analyzeRenderOutput
 import sys
 
 
-#current pipeline:
-# 1. set source
-#2. extract ADM metadata from source wav
-#3. parse ADM metadata into internal data structure (optionally export json for analysis)
-#4. analyze audio channels for content (generate containsAudio.json)
-#5. run packageForRender - this runs repackage (split stems) and createRenderInfo (spatial instructions json)
-#6. run create render - runs allolib vbap renderer to create spatial render
-#7. run analyze render -- creates pdf in processedData/ to show db analysis of each channel in final render
+# Current pipeline:
+# 1. Setup C++ tools - install bwfmetaedit, initialize git submodules (allolib), build VBAP renderer
+# 2. Extract ADM metadata from source WAV using bwfmetaedit
+# 3. Parse ADM metadata into internal data structure (optionally export JSON for analysis)
+# 4. Analyze audio channels for content (generate containsAudio.json)
+# 5. Run packageForRender - split stems and create spatial instructions JSON
+# 6. Run VBAP renderer - create multichannel spatial render
+# 7. Analyze render output - create PDF with dB analysis of each channel in final render
 
 
 def run_pipeline(sourceADMFile, sourceSpeakerLayout, createRenderAnalysis=True):
@@ -26,6 +27,15 @@ def run_pipeline(sourceADMFile, sourceSpeakerLayout, createRenderAnalysis=True):
         sourceSpeakerLayout: path to speaker layout JSON
         createRenderAnalysis: whether to create render analysis PDF
     """
+    # Step 1: Setup C++ tools and dependencies
+    print("\n" + "="*80)
+    print("STEP 1: Setting up C++ tools and dependencies")
+    print("="*80)
+    if not setupCppTools():
+        print("\n✗ Error: C++ tools setup failed")
+        print("Cannot continue without required tools.")
+        return False
+    
     processedDataDir = "processedData"
     finalOutputRenderFile = "processedData/spatial_render.wav"
     finalOutputRenderAnalysisPDF = "processedData/spatial_render_analysis.pdf"

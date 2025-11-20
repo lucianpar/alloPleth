@@ -16,7 +16,10 @@ def extractMetaData(wavPath, outXmlPath):
     except subprocess.CalledProcessError as e:
         print(f" ERROR running bwfmetaedit: {e}")
     except FileNotFoundError:
-        print(" ERROR bwfmetaedit NOT found — make sure it’s installed and on PATH.")
+        print(" ERROR bwfmetaedit NOT found!")
+        print(" Install with: brew install bwfmetaedit")
+        print(" Or download from: https://mediaarea.net/BWFMetaEdit")
+        print(" Alternatively, run: from src.configCPP import installBwfmetaedit; installBwfmetaedit()")
 
     return outXmlPath
 

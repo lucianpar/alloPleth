@@ -1,12 +1,6 @@
 # TO DO
 
-- add sampelrate to top of renderInstructions.json output
-
-- make a decodeADM.py with 1 argument (sourceADM)
-
-  - basically just main but as CLI, will update to take in speaker config json
-
-- set up vbap render engine
+- change config CPP to be an init.sh that deals with cpp stuff and the venv dependencies, but good enough for now
 
 - set up simple multichannel file player instance in allolib
 
