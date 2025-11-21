@@ -1,11 +1,9 @@
 # TO DO
 
+-FIX PYTHON / PYTHON 3 VENV ISSUE --
+-MAKE SURE ALL SUBMODULE / PIP INSTALL / BREW INSTALL ARE INSTALLING A SPECIFIC STABLE BUILD
+
 - fix commenting prints at the end of pipeline
-- set up simple multichannel file player instance in allolib
-
-- do some quick atmos mixes for testing
-
-- update readme
 
 - transition to render without stem splitting, shouldnt be necessary
 
